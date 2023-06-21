@@ -5,7 +5,6 @@ import { Menu, Transition } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import { Fragment } from "react";
 import { BiChevronDown } from "react-icons/bi";
-import { set } from "sanity";
 
 const FilterInput = ({ data }: { data: DataType[] | undefined }) => {
   const router = useRouter();
