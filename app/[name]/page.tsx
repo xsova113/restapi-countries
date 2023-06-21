@@ -13,7 +13,9 @@ const Country = () => {
   const params = useParams();
 
   const country = data?.find(
-    (item) => item.name.toLowerCase().replace(/\s+/g, "") === params.name
+    (item) =>
+      item.name.toLowerCase().replace(/\s+/g, "") ===
+      params.name.replace("%C3%A5", "å")
   );
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const Country = () => {
         <div className="relative sm:flex-1 h-80 max-sm:w-full max-sm:h-60">
           <Image
             priority
-            src={country?.flag ? country.flag : ""}
+            src={country ? country.flag : "/"}
             alt="flag"
             fill
             className="object-cover"
@@ -105,13 +107,13 @@ const Country = () => {
           <div className="flex mt-12 items-center">
             <span className="text-sm mr-2">Border Countries:</span>
             {country?.borders?.map((border) => (
-              <span
-                key={border}
-                className="shadow-sm border font-thin opacity-80 dark:border-transparent rounded-sm px-4 py-1 mr-2 element_dark_colour text-xs"
-              >
-                {border}
-              </span>
+              <div key={border}>
+                <span className="shadow-sm border font-thin opacity-80 dark:border-transparent rounded-sm px-4 py-1 mr-2 element_dark_colour text-xs">
+                  {border}
+                </span>
+              </div>
             ))}
+            {!country?.borders && <span className="text-sm opacity-80">No border countries</span>}
           </div>
         </div>
       </div>
