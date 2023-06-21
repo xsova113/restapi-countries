@@ -45,7 +45,7 @@ const AllCountries = () => {
           className="shadow-md"
           href={`/${item.name.toLowerCase().replace(/\s+/g, "")}`}
         >
-          <div className="relative max-w-full h-32">
+          <div className="relative max-w-full h-40">
             <Image
               loading="lazy"
               src={item.flag}
